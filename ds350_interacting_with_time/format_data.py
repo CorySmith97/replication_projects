@@ -10,10 +10,12 @@ tickers_use = ["CXW", "F", "GM", "KR", "WDC", "NKE","T", "WDAY", "WFC", "WMT", "
 # %%
 # example for one ticker
 msft = yf.Ticker("MSFT")
-msft.history(period="2y", interval="1h")
+msft.history(period="2y", interval="1h").reset_index()
 
 # %%
 dat = yf.download(tickers_use, period="5y", interval="1d").reset_index()
+dat = pl.from_pandas(dat)
+dat.melt(id_vars=)
 
 # %%
 # We want this.
